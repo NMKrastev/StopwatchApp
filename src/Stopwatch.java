@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,18 @@ public class Stopwatch implements ActionListener {
 
     Stopwatch() {
 
+        timeLabel.setText(hours_string + ":" + minutes_string + ":" + seconds_string);
+        timeLabel.setBounds(50, 100, 300, 100);
+        timeLabel.setFont(new Font("Arial", Font.BOLD, 50));
+        timeLabel.setBorder(BorderFactory.createBevelBorder(1));
+        timeLabel.setOpaque(true);
+        timeLabel.setHorizontalAlignment(JTextField.CENTER);
+
+        frame.add(timeLabel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 420);
+        frame.setLayout(null);
+        frame.setVisible(true);
     }
 
     @Override
