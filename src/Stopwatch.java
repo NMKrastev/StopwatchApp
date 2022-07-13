@@ -18,6 +18,24 @@ public class Stopwatch implements ActionListener {
     String minutes_string = String.format("%02d", minutes);
     String hours_string = String.format("%02d", hours);
 
+    Timer timer = new Timer(1000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            elapsedTime += 1000;
+            hours = (elapsedTime / 3600000);
+            minutes = (elapsedTime / 60000) % 60;
+            seconds = (elapsedTime / 1000) % 60;
+
+            hours_string = String.format("%02d", hours);
+            minutes_string = String.format("%02d", minutes);
+            seconds_string = String.format("%02d",seconds);
+
+            timeLabel.setText(hours_string + ":" + minutes_string + ":" + seconds_string);
+
+        }
+    });
+
     Stopwatch() {
 
         timeLabel.setText(hours_string + ":" + minutes_string + ":" + seconds_string);
