@@ -79,6 +79,12 @@ public class Stopwatch implements ActionListener {
                 stop();
             }
         }
+
+        if (e.getSource() == resetButton) {
+            started = false;
+            startButton.setText("Start");
+            reset();
+        }
     }
 
     void start() {
@@ -90,6 +96,17 @@ public class Stopwatch implements ActionListener {
     }
 
     void reset() {
+        timer.stop();
+        elapsedTime = 0;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+
+        hours_string = String.format("%02d", hours);
+        minutes_string = String.format("%02d", minutes);
+        seconds_string = String.format("%02d",seconds);
+
+        timeLabel.setText(hours_string + ":" + minutes_string + ":" + seconds_string);
 
     }
 }
